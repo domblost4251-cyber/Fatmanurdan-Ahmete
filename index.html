@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe4ef">
+<title>Fatmanur’dan Ahmet’e 💗</title>
+<style>
+:root{--ink:#642342;--pink:#f25291;--pink2:#ff9fbe;--cream:#fff9fc}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,'Times New Roman',serif;color:var(--ink)}
+body{background:radial-gradient(circle at 20% 0%,#fffafd 0,#ffe7f0 42%,#ffc4d9 100%);overflow-x:hidden}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:20}
+.wrap{min-height:100svh;display:grid;place-items:center;padding:18px;position:relative}
+.card{position:relative;z-index:2;width:min(700px,100%);min-height:560px;padding:clamp(24px,6vw,52px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid #fff;border-radius:30px;background:#fffafce8;box-shadow:0 22px 75px #a83a6730;backdrop-filter:blur(10px);overflow:hidden}
+.card:before,.card:after{content:"✦";position:absolute;color:#ff9fbe;font-size:26px;opacity:.65}.card:before{top:22px;left:24px}.card:after{bottom:20px;right:25px}
+.kicker{font:700 10px/1.5 Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#ca4d80}
+h1{font-size:clamp(34px,8vw,62px);line-height:1.05;font-weight:500;margin:16px 0}
+h2{font-size:clamp(27px,6vw,43px);font-weight:500;line-height:1.1;margin:12px 0 18px}
+p{font-size:clamp(16px,3.7vw,19px);line-height:1.75;max-width:510px;margin:9px auto}
+.small{font:12px/1.6 Arial,sans-serif;color:#a45d7b;margin-top:18px}
+.emoji{font-size:clamp(45px,11vw,72px);margin:10px 0;filter:drop-shadow(0 8px 10px #e88cb34a)}
+.btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:25px}
+button{font:700 14px Arial,sans-serif;border:0;border-radius:999px;padding:14px 22px;cursor:pointer;transition:transform .2s,filter .2s}
+button:hover{transform:translateY(-2px);filter:brightness(1.03)}
+.primary{color:white;background:linear-gradient(120deg,#ff73a7,#df367b);box-shadow:0 9px 24px #e93d8340}
+.secondary{color:#a52c62;background:#ffe5ef}
+.hidden{display:none!important}
+.progress{display:flex;gap:7px;justify-content:center;margin:0 0 22px}
+.dot{width:7px;height:7px;border-radius:20px;background:#f2bfd2;transition:.3s}.dot.active{width:23px;background:#ed5b96}
+.page{width:100%;animation:appear .55s ease both}@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.heart{display:inline-block;animation:pulse 1.5s infinite}@keyframes pulse{50%{transform:scale(1.13)}}
+.gift{display:inline-block;animation:bob 2.5s infinite ease-in-out}@keyframes bob{50%{transform:translateY(-8px) rotate(3deg)}}
+.cake-wrap{position:relative;width:190px;height:200px;margin:5px auto 12px}
+.cake{position:absolute;bottom:12px;left:22px;width:146px;height:82px;border-radius:13px 13px 20px 20px;background:linear-gradient(#ffb6cb 0 22%,#f77da5 23% 31%,#ffe1eb 32% 100%);box-shadow:inset 0 -9px #ef8dad,0 13px 18px #b74e7520}
+.cake:before{content:"";position:absolute;top:-15px;left:0;width:146px;height:30px;border-radius:50%;background:#fff0f5;border-bottom:7px solid #ff9dbc}
+.candle{position:absolute;bottom:108px;left:91px;width:12px;height:47px;border-radius:4px;background:repeating-linear-gradient(45deg,#fff 0 7px,#f26d9c 7px 13px);box-shadow:0 0 0 1px #ef9ab6}
+.flame{position:absolute;bottom:153px;left:89px;width:17px;height:26px;background:radial-gradient(ellipse at 50% 70%,#fff6b0 0 20%,#ffb52e 42%,#ff6c45 70%,transparent 72%);border-radius:60% 40% 60% 40%;transform:rotate(4deg);filter:drop-shadow(0 0 10px #ffad37);animation:flicker .15s infinite alternate;transform-origin:bottom}
+@keyframes flicker{to{transform:rotate(-5deg) scale(.9,1.08)}}
+.flame.out{opacity:0;transform:translateY(-14px) scale(.3);transition:.35s}
+.smoke{position:absolute;bottom:151px;left:93px;font-size:24px;opacity:0;color:#aaa}.smoke.show{animation:smoke 1.5s ease-out forwards}@keyframes smoke{0%{opacity:0;transform:translateY(0) scale(.5)}35%{opacity:.65}100%{opacity:0;transform:translateY(-55px) translateX(9px) scale(1.5)}}
+.cake-glow{position:absolute;inset:12px;border-radius:50%;background:#ffc5d8;filter:blur(25px);opacity:.45;z-index:-1}
+.floating{position:fixed;bottom:-35px;z-index:1;pointer-events:none;animation:floatUp 7s linear forwards;opacity:.7}@keyframes floatUp{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+footer{font:11px Arial,sans-serif;color:#b56b89;margin-top:20px}
+@media(max-width:430px){.card{min-height:calc(100svh - 36px);padding:26px 20px}.cake-wrap{transform:scale(.9);margin-top:-3px;margin-bottom:0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<div class="wrap"><main class="card">
+<div class="progress" id="progress" aria-label="Sayfa ilerlemesi"></div>
+<section class="page" id="p0">
+<div class="kicker">sana özel küçük bir yolculuk</div><div class="emoji gift">💌</div>
+<h1>Ahmet, hazır mısın?</h1>
+<p>Sana birkaç satırdan biraz daha fazlasını hazırladım. Her sayfada küçük bir sürpriz, sonunda da içten bir dilek var.</p>
+<p>Hazırsan başlayalım… 🌷</p>
+<div class="btns"><button class="primary" onclick="go(1)">Sürprizi aç ✨</button></div>
+<div class="small">Bir gülümseme bırakması dileğiyle ♡</div>
+</section>
+<section class="page hidden" id="p1">
+<div class="kicker">01 · ilk sayfa</div><div class="emoji">🌸</div>
+<h2>Biraz mutluluk sana gelsin</h2>
+<p>Bazen bir mesajın, küçücük bir düşüncenin ya da beklenmedik bir sürprizin insanın gününü güzelleştirmesi yeter.</p>
+<p>Ben de bu sayfayı açtığında yüzünde tatlı bir gülümseme oluşsun istedim. Çünkü güzel şeyler paylaşınca daha da güzelleşiyor.</p>
+<div class="btns"><button class="primary" onclick="go(2)">Devam et 💗</button></div>
+</section>
+<section class="page hidden" id="p2">
+<div class="kicker">02 · birkaç güzel kelime</div><div class="emoji">✨</div>
+<h2>Ahmet’e küçük bir not</h2>
+<p>Umarım önüne hep güzel fırsatlar çıkar. Emek verdiğin şeylerin karşılığını al, hayallerinden vazgeçme ve zor günlerde bile kendine inanmayı unutma.</p>
+<p>Her gün mükemmel olmak zorunda değil; bazen sadece devam etmek bile başlı başına başarıdır.</p>
+<div class="btns"><button class="primary" onclick="go(3)">Bir sonraki sayfa →</button></div>
+</section>
+<section class="page hidden" id="p3">
+<div class="kicker">03 · içten dilekler</div><div class="emoji">🦋</div>
+<h2>Güzel günlerin olsun</h2>
+<p>Bol kahkahalı, huzurlu, sürprizlerle dolu günlerin olsun. Yanında seni anlayan insanlar, aklında güzel fikirler ve kalbinde umut eksik olmasın.</p>
+<p>Bir şey istediğinde cesaretle dene; yolun değişse bile bu, hikâyenin bittiği anlamına gelmez.</p>
+<div class="btns"><button class="primary" onclick="go(4)">Bir sürpriz daha 🎁</button></div>
+</section>
+<section class="page hidden" id="p4">
+<div class="kicker">04 · minik bir tebessüm</div><div class="emoji">🐻‍❄️</div>
+<h2>Bu sayfanın görevi</h2>
+<p>Şu an minicik de olsa gülümsediysen görev tamamlandı! 😊</p>
+<p>Bu site büyük bir şey olmak zorunda değil. Bazen özenle hazırlanmış küçük bir şey, uzun uzun anlatılan sözlerden daha tatlı bir hatıraya dönüşür.</p>
+<div class="btns"><button class="primary" onclick="go(5)">Pastaya geç 🎂</button></div>
+</section>
+<section class="page hidden" id="p5">
+<div class="kicker">05 · dilek zamanı</div>
+<h2>Ahmet, bir dilek tut! 🎂</h2>
+<p>İçinden güzel bir dilek geçir. Hazır olduğunda aşağıdaki mumun üzerine üflediğini hayal et ve butona bas.</p>
+<div class="cake-wrap"><div class="cake-glow"></div><div class="cake"></div><div class="candle"></div><div class="flame" id="flame"></div><div class="smoke" id="smoke">〰</div></div>
+<p id="candleText">Mum hâlâ yanıyor… Dileğini tuttun mu?</p>
+<div class="btns"><button class="primary" id="blow" onclick="blowCandle()">Mumu üfle 🌬️</button></div>
+<div class="small">Gerçekten üflemek istersen mikrofona izin vererek de deneyebilirsin; buton her durumda çalışır.</div>
+<div class="btns hidden" id="afterBlow"><button class="primary" onclick="go(6)">Dileğim kabul olsun 💫</button></div>
+</section>
+<section class="page hidden" id="p6">
+<div class="kicker">06 · dileğin ışığı</div><div class="emoji">🌟</div>
+<h2>Umarım en güzeli olur</h2>
+<p>Dilediğin şey sana mutluluk, huzur ve güzel başlangıçlar getirsin. Olmasını istediğin şeyler için kendine zaman tanı; her güzel şeyin bir zamanı var.</p>
+<p>Şimdi bir de bu küçük kutlamayı hak ettin…</p>
+<div class="btns"><button class="primary" onclick="go(7)">Son sürpriz 💖</button></div>
+</section>
+<section class="page hidden" id="p7">
+<div class="kicker">07 · kalpten kalbe</div><div class="emoji heart">💗</div>
+<h1>Fatmanur’dan<br>Ahmet’e</h1>
+<p>Ahmet, bu küçük sürpriz sana iyi hissettirsin ve güzel bir anı olarak kalsın istedim.</p>
+<p>İyi ki varsın. Umarım hayat sana bolca mutluluk, içten kahkahalar ve hatırladıkça gülümseyeceğin güzel anlar getirir.</p>
+<p><em>Her şey gönlünce olsun. Sevgiyle, Fatmanur ♡</em></p>
+<div class="btns"><button class="primary" onclick="celebrate()">Konfetileri yağdır! 🎉</button><button class="secondary" onclick="go(0)">Baştan izle ↺</button></div>
+<footer>Senin için, özenle hazırlandı ✨</footer>
+</section>
+</main></div>
+<script>
+const total=8;let current=0;const progress=document.getElementById('progress');
+for(let i=0;i<total;i++){const d=document.createElement('span');d.className='dot'+(i===0?' active':'');progress.appendChild(d)}
+function go(n){current=n;document.querySelectorAll('.page').forEach((el,i)=>{el.classList.toggle('hidden',i!==n);if(i===n){el.style.animation='none';void el.offsetWidth;el.style.animation=''}});[...progress.children].forEach((d,i)=>d.classList.toggle('active',i===n));if(n===7)celebrate();window.scrollTo({top:0,behavior:'smooth'})}
+const canvas=document.getElementById('confetti'),ctx=canvas.getContext('2d');let bits=[],running=false;
+function sizeCanvas(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}addEventListener('resize',sizeCanvas);sizeCanvas();
+function celebrate(){bits=[];for(let i=0;i<210;i++)bits.push({x:Math.random()*innerWidth,y:-Math.random()*innerHeight*.7,vx:(Math.random()-.5)*5,vy:2+Math.random()*5,r:3+Math.random()*5,rot:Math.random()*6,vr:(Math.random()-.5)*.22,h:Math.random()*360,life:150+Math.random()*100});if(!running){running=true;requestAnimationFrame(draw)}}
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);bits=bits.filter(b=>b.life-->0&&b.y<innerHeight+25);for(const b of bits){b.x+=b.vx;b.y+=b.vy;b.vy+=.025;b.rot+=b.vr;ctx.save();ctx.translate(b.x,b.y);ctx.rotate(b.rot);ctx.fillStyle=`hsl(${b.h} 90% 65%)`;ctx.fillRect(-b.r/2,-b.r/2,b.r,b.r*1.7);ctx.restore()}if(bits.length)requestAnimationFrame(draw);else{running=false;ctx.clearRect(0,0,innerWidth,innerHeight)}}
+function floatHearts(){for(let i=0;i<16;i++){const e=document.createElement('span');e.className='floating';e.textContent=['♡','💗','✦','✨'][Math.floor(Math.random()*4)];e.style.left=Math.random()*100+'vw';e.style.fontSize=(15+Math.random()*22)+'px';e.style.animationDuration=(5+Math.random()*4)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),9500)}}
+function blowCandle(){const flame=document.getElementById('flame');if(flame.classList.contains('out'))return;flame.classList.add('out');document.getElementById('smoke').classList.add('show');document.getElementById('candleText').textContent='Dileğin gökyüzüne doğru uçtu! ✨';document.getElementById('blow').textContent='Dilek tutuldu 💫';document.getElementById('blow').disabled=true;document.getElementById('afterBlow').classList.remove('hidden');celebrate();floatHearts();}
+// Optional microphone blow detection. Browsers require permission and HTTPS; the button remains available regardless.
+async function listenForBlow(){try{if(!navigator.mediaDevices?.getUserMedia)return;const stream=await navigator.mediaDevices.getUserMedia({audio:true});const audio=new AudioContext();const source=audio.createMediaStreamSource(stream);const analyser=audio.createAnalyser();analyser.fftSize=512;source.connect(analyser);const data=new Uint8Array(analyser.frequencyBinCount);let loud=0;const check=()=>{analyser.getByteTimeDomainData(data);let sum=0;for(const v of data)sum+=(v-128)**2;const rms=Math.sqrt(sum/data.length);if(rms>22)loud++;else loud=0;if(loud>=3){blowCandle();stream.getTracks().forEach(t=>t.stop());audio.close();return}requestAnimationFrame(check)};check()}catch(e){}}
+</script>
+</body></html>
